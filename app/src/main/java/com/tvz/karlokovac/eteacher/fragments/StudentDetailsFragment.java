@@ -1,4 +1,4 @@
-package com.tvz.karlokovac.eteacher;
+package com.tvz.karlokovac.eteacher.fragments;
 
 import android.content.Context;
 import android.net.Uri;
@@ -11,6 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.tvz.karlokovac.eteacher.R;
+import com.tvz.karlokovac.eteacher.adapters.StudentDetailsSubjectsAdapter;
+import com.tvz.karlokovac.eteacher.data.Subject;
 
 
 /**

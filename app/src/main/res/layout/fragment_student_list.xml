@@ -9,5 +9,5 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="android.support.v7.widget.GridLayoutManager"
-    tools:context=".StudentsFragment"
+    tools:context=".fragments.StudentsFragment"
     tools:listitem="@layout/fragment_student" />

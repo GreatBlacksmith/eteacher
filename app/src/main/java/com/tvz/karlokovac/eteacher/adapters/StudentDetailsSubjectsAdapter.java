@@ -1,10 +1,13 @@
-package com.tvz.karlokovac.eteacher;
+package com.tvz.karlokovac.eteacher.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.tvz.karlokovac.eteacher.R;
+import com.tvz.karlokovac.eteacher.data.Subject;
 
 public class StudentDetailsSubjectsAdapter extends RecyclerView.Adapter<StudentDetailsSubjectsAdapter.ViewHolder> {
     private Subject[] subjects;

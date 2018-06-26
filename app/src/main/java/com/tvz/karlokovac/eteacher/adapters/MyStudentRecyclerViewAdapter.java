@@ -1,12 +1,14 @@
-package com.tvz.karlokovac.eteacher;
+package com.tvz.karlokovac.eteacher.adapters;
 
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.tvz.karlokovac.eteacher.OnListFragmentInteractionListener;
+import com.tvz.karlokovac.eteacher.R;
+import com.tvz.karlokovac.eteacher.data.Student;
 import com.tvz.karlokovac.eteacher.dummy.DummyContent.DummyItem;
 
 import java.util.List;

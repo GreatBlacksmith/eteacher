@@ -13,6 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tvz.karlokovac.eteacher.data.Student;
+import com.tvz.karlokovac.eteacher.data.Subject;
+import com.tvz.karlokovac.eteacher.fragments.HomeFragment;
+import com.tvz.karlokovac.eteacher.fragments.StudentDetailsFragment;
+import com.tvz.karlokovac.eteacher.fragments.StudentsFragment;
+import com.tvz.karlokovac.eteacher.fragments.SubjectFragment;
+import com.tvz.karlokovac.eteacher.fragments.SubjectStudentFragment;
+
 public class MainActivity extends AppCompatActivity
         implements
         NavigationView.OnNavigationItemSelectedListener,
@@ -108,6 +116,15 @@ public class MainActivity extends AppCompatActivity
             Bundle bundle = new Bundle();
             bundle.putString("studentName", ((Student)data).getName());
             bundle.putString("studentAverage", ((Student)data).getAverage());
+            fragment.setArguments(bundle);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
+        if (tag.equals("Subject")){
+            Fragment fragment = new SubjectStudentFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("subjectName", ((Subject)data).getName());
             fragment.setArguments(bundle);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);

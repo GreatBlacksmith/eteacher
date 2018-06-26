@@ -1,4 +1,4 @@
-package com.tvz.karlokovac.eteacher;
+package com.tvz.karlokovac.eteacher.data;
 
 public class Student {
 

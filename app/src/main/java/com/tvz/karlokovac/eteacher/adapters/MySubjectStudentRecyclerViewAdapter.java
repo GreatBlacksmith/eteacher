@@ -1,13 +1,14 @@
-package com.tvz.karlokovac.eteacher;
+package com.tvz.karlokovac.eteacher.adapters;
 
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.tvz.karlokovac.eteacher.OnListFragmentInteractionListener;
+import com.tvz.karlokovac.eteacher.R;
+import com.tvz.karlokovac.eteacher.data.StudentInSubject;
 import com.tvz.karlokovac.eteacher.dummy.DummyContent.DummyItem;
 
 import java.util.List;
@@ -15,30 +16,31 @@ import java.util.List;
 /**
  * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
+ * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MySubjectRecyclerViewAdapter extends RecyclerView.Adapter<MySubjectRecyclerViewAdapter.ViewHolder> {
+public class MySubjectStudentRecyclerViewAdapter extends RecyclerView.Adapter<MySubjectStudentRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Subject> subjects;
+    private final List<StudentInSubject> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MySubjectRecyclerViewAdapter(List<Subject> items, OnListFragmentInteractionListener listener) {
-        subjects = items;
+    public MySubjectStudentRecyclerViewAdapter(List<StudentInSubject> items, OnListFragmentInteractionListener listener) {
+        mValues = items;
         mListener = listener;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_subject, parent, false);
+                .inflate(R.layout.fragment_subjectstudent, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.subject = subjects.get(position);
-        holder.subjectImage.setImageDrawable(subjects.get(position).getImage());
-        holder.subjectName.setText(subjects.get(position).getName());
+        holder.mItem = mValues.get(position);
+        holder.studentNameView.setText(mValues.get(position).getStudentName());
+        holder.studentGradesView.setText(mValues.get(position).getGrades().toString());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +48,7 @@ public class MySubjectRecyclerViewAdapter extends RecyclerView.Adapter<MySubject
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
-                    mListener.onListFragmentInteraction("Subject",holder.subject);
+                    mListener.onListFragmentInteraction("StudentInSubject",holder.mItem);
                 }
             }
         });
@@ -54,25 +56,25 @@ public class MySubjectRecyclerViewAdapter extends RecyclerView.Adapter<MySubject
 
     @Override
     public int getItemCount() {
-        return subjects.size();
+        return mValues.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final ImageView subjectImage;
-        public final TextView subjectName;
-        public Subject subject;
+        public final TextView studentNameView;
+        public final TextView studentGradesView;
+        public StudentInSubject mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            subjectImage = (ImageView) view.findViewById(R.id.subject_image);
-            subjectName = (TextView) view.findViewById(R.id.subject_name);
+            studentNameView = (TextView) view.findViewById(R.id.subjectstudent_row_studentName);
+            studentGradesView = (TextView) view.findViewById(R.id.ubjectstudent_row_studentGrades);
         }
 
         @Override
         public String toString() {
-            return super.toString() + " '" + subjectName.getText() + "'";
+            return super.toString() + " '" + studentNameView.getText() + "'";
         }
     }
 }

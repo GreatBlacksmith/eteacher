@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentStart="true"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/subjectstudent_labels_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/subjectstudent_subject_label"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Predmet:" />
+
+        <TextView
+            android:id="@+id/subjectstudent_subject_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/subjectstudent_list_labels_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/subjectstudent_labels_holder"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/subjectstudent_student_name_label"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:layout_height="match_parent"
+            android:text="Ime ucenika" />
+
+        <TextView
+            android:id="@+id/subjectstudent_student_grades_abel"
+            android:layout_width="wrap_content"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Ocjene"
+            />
+    </LinearLayout>
+    <View
+        android:id="@+id/line_sep_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/subjectstudent_list_labels_holder"
+        android:background="?android:attr/listDivider" />
+
+    <android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_below="@+id/line_sep_1"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/subjectstudent_list"
+        android:name="com.tvz.karlokovac.eteacher.SubjectStudentFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".fragments.SubjectStudentFragment"
+        tools:listitem="@layout/fragment_subjectstudent" />
+
+
+
+</RelativeLayout>

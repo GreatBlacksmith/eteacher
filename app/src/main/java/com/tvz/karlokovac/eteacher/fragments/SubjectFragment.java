@@ -1,4 +1,4 @@
-package com.tvz.karlokovac.eteacher;
+package com.tvz.karlokovac.eteacher.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.tvz.karlokovac.eteacher.OnListFragmentInteractionListener;
+import com.tvz.karlokovac.eteacher.R;
+import com.tvz.karlokovac.eteacher.adapters.MySubjectRecyclerViewAdapter;
+import com.tvz.karlokovac.eteacher.data.Subject;
 
 import java.util.ArrayList;
 

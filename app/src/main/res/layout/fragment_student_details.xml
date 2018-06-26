@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentDetailsFragment">
+    tools:context=".fragments.StudentDetailsFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -28,8 +28,9 @@
             android:textSize="30sp" />
 
         <LinearLayout
-            android:layout_width="634dp"
+            android:layout_width="470dp"
             android:layout_height="84dp"
+            android:layout_toEndOf="@+id/student_details_pic"
             android:layout_alignBottom="@+id/student_details_pic"
             android:layout_alignParentEnd="true"
             android:gravity="center">
@@ -37,16 +38,16 @@
             <TextView
                 android:id="@+id/student_details_avg_label"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_toEndOf="@+id/student_details_pic"
-                android:text="Prosjek:"
                 android:gravity="center"
+                android:text="Prosjek:"
                 android:textAppearance="@android:style/TextAppearance.Material.Large" />
 
             <TextView
                 android:id="@+id/student_details_avg"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/student_details_avg_label"
                 android:gravity="center"
@@ -56,24 +57,28 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/student_details_table_labels"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:id="@+id/student_details_table_labels"
             android:layout_below="@+id/student_details_pic"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/student_details_subjects_label"
-                android:layout_width="225dp"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_weight="1"
+                android:paddingStart="10dp"
                 android:text="Predmeti" />
+
             <TextView
                 android:id="@+id/student_details_average_label"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:layout_weight="1"
                 android:text="Prosjek" />
 
         </LinearLayout>
@@ -83,7 +88,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
+            android:layout_below="@+id/line_sep_1" />
+
+        <View
+            android:id="@+id/line_sep_1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_alignParentStart="true"
             android:layout_below="@+id/student_details_table_labels"
-            android:layout_marginTop="46dp" />
+            android:background="?android:attr/listDivider" />
     </RelativeLayout>
 </FrameLayout>

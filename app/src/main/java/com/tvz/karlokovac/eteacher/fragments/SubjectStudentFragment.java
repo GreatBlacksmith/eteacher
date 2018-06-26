@@ -1,22 +1,26 @@
-package com.tvz.karlokovac.eteacher;
+package com.tvz.karlokovac.eteacher.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.tvz.karlokovac.eteacher.OnListFragmentInteractionListener;
+import com.tvz.karlokovac.eteacher.R;
+import com.tvz.karlokovac.eteacher.adapters.MySubjectStudentRecyclerViewAdapter;
+import com.tvz.karlokovac.eteacher.data.StudentInSubject;
+import com.tvz.karlokovac.eteacher.data.Subject;
+import com.tvz.karlokovac.eteacher.data.SubjectStudent;
 import com.tvz.karlokovac.eteacher.dummy.DummyContent;
 import com.tvz.karlokovac.eteacher.dummy.DummyContent.DummyItem;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -24,26 +28,26 @@ import java.util.List;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class StudentsFragment extends Fragment{
+public class SubjectStudentFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
+    private TextView subjectNameView;
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    private List<Student> students = new ArrayList<>();
-
+    private ArrayList studentsInSubject = new ArrayList<StudentInSubject>();
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public StudentsFragment() {
+    public SubjectStudentFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static StudentsFragment newInstance(int columnCount) {
-        StudentsFragment fragment = new StudentsFragment();
+    public static SubjectStudentFragment newInstance(int columnCount) {
+        SubjectStudentFragment fragment = new SubjectStudentFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -62,26 +66,41 @@ public class StudentsFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_student_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_subjectstudent_list, container, false);
+        RecyclerView list = view.findViewById(R.id.subjectstudent_list);
+        ArrayList<String> grades = new ArrayList<>();
+        grades.add("4");
+        grades.add("5");
+        grades.add("3");
+        grades.add("4");
+        grades.add("5");
+        grades.add("3");
 
-        students = new ArrayList<>();
-        students.add(new Student("Marko", "11", "3.4"));
-        students.add(new Student("Maja", "10", "4.5"));
-        students.add(new Student("Luna", "9", "4.8"));
+        studentsInSubject = new ArrayList();
+        StudentInSubject studentInSubject1 = new StudentInSubject("Marko", grades);
+        StudentInSubject studentInSubject2 = new StudentInSubject("Iva", grades);
+        StudentInSubject studentInSubject3 = new StudentInSubject("Anđela", grades);
+
+        studentsInSubject.add(studentInSubject1);
+        studentsInSubject.add(studentInSubject2);
+        studentsInSubject.add(studentInSubject3);
+
+        String subjectName = this.getArguments().getString("subjectName");
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+        if (list instanceof RecyclerView) {
+            Context context = list.getContext();
+            RecyclerView recyclerView = (RecyclerView) list;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            MyStudentRecyclerViewAdapter adapter = new MyStudentRecyclerViewAdapter(students, mListener);
-            //adapter.setClickListener();
-            recyclerView.setAdapter(new MyStudentRecyclerViewAdapter(students, mListener));
+            recyclerView.setAdapter(new MySubjectStudentRecyclerViewAdapter(studentsInSubject, mListener));
         }
+
+        subjectNameView = (TextView) view.findViewById(R.id.subjectstudent_subject_name);
+        subjectNameView.setText(subjectName);
         return view;
     }
 
@@ -102,4 +121,5 @@ public class StudentsFragment extends Fragment{
         super.onDetach();
         mListener = null;
     }
+
 }
