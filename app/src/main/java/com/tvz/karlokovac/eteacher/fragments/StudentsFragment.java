@@ -65,9 +65,9 @@ public class StudentsFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_student_list, container, false);
 
         students = new ArrayList<>();
-        students.add(new Student("Marko", "11", "3.4"));
-        students.add(new Student("Maja", "10", "4.5"));
-        students.add(new Student("Luna", "9", "4.8"));
+        students.add(new Student("Marko Lazić", "11", "3.4"));
+        students.add(new Student("Maja Ivanov", "10", "4.5"));
+        students.add(new Student("Luna Marjanović", "9", "4.8"));
 
         // Set the adapter
         if (view instanceof RecyclerView) {

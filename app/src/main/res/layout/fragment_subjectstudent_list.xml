@@ -11,26 +11,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-
         android:padding="10dp">
+
         <TextView
             android:id="@+id/subjectstudent_subject_label"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:textAppearance="?attr/textAppearanceSearchResultTitle"
+            android:textColor="@android:color/black"
             android:text="Predmet:" />
 
         <TextView
             android:id="@+id/subjectstudent_subject_name"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:textColor="@android:color/black"
+            android:textAppearance="?attr/textAppearanceSearchResultTitle"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            />
+            android:layout_weight="1" />
+
     </LinearLayout>
     <LinearLayout
         android:id="@+id/subjectstudent_list_labels_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@drawable/bottom_border"
         android:layout_below="@+id/subjectstudent_labels_holder"
         android:padding="10dp">
         <TextView
@@ -38,6 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_weight="1"
             android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@android:color/black"
             android:layout_height="match_parent"
             android:text="Ime ucenika" />
 
@@ -45,6 +53,7 @@
             android:id="@+id/subjectstudent_student_grades_abel"
             android:layout_width="wrap_content"
             android:textAppearance="?attr/textAppearanceListItem"
+            android:textColor="@android:color/black"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Ocjene"

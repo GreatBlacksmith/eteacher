@@ -19,6 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="15dp"
         android:layout_toEndOf="@+id/student_record_picture"
+        android:textColor="@android:color/black"
         android:gravity="center"
         android:text="TextView"
         android:textAlignment="viewStart"

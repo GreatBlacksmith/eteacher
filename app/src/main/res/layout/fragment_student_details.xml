@@ -23,7 +23,7 @@
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/student_details_pic"
             android:gravity="center"
-            android:text="TextView"
+            android:textColor="@android:color/black"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -40,14 +40,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@+id/student_details_pic"
+                android:textColor="@android:color/black"
                 android:gravity="center"
                 android:text="Prosjek:"
+                android:layout_marginEnd="5dp"
                 android:textAppearance="@android:style/TextAppearance.Material.Large" />
 
             <TextView
                 android:id="@+id/student_details_avg"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:textColor="@android:color/black"
                 android:layout_alignParentTop="true"
                 android:layout_toEndOf="@+id/student_details_avg_label"
                 android:gravity="center"
@@ -62,14 +65,19 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/student_details_pic"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@drawable/bottom_border"
+            android:weightSum="1"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp">
 
             <TextView
                 android:id="@+id/student_details_subjects_label"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:layout_weight="1"
+                android:textColor="@android:color/black"
+                android:layout_weight="0.4"
                 android:paddingStart="10dp"
                 android:text="Predmeti" />
 
@@ -78,24 +86,18 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:layout_weight="1"
+                android:textColor="@android:color/black"
+                android:layout_weight="0.4"
                 android:text="Prosjek" />
 
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/student_details_subjects"
+            android:layout_marginTop="1dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/line_sep_1" />
-
-        <View
-            android:id="@+id/line_sep_1"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/student_details_table_labels"
-            android:background="?android:attr/listDivider" />
+            android:layout_below="@+id/student_details_table_labels" />
     </RelativeLayout>
 </FrameLayout>
