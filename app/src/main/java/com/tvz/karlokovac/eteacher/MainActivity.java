@@ -21,6 +21,7 @@ import com.tvz.karlokovac.eteacher.fragments.StudentsFragment;
 import com.tvz.karlokovac.eteacher.fragments.SubjectFragment;
 import com.tvz.karlokovac.eteacher.fragments.SubjectStudentFragment;
 import com.tvz.karlokovac.eteacher.fragments.TestFragment;
+import com.tvz.karlokovac.eteacher.fragments.TestStudentFragment;
 
 public class MainActivity extends AppCompatActivity
         implements
@@ -126,6 +127,14 @@ public class MainActivity extends AppCompatActivity
             Fragment fragment = new SubjectStudentFragment();
             Bundle bundle = new Bundle();
             bundle.putString("subjectName", ((Subject)data).getName());
+            fragment.setArguments(bundle);
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, fragment);
+            ft.commit();
+        }
+        if (tag.equals("Tests")){
+            Fragment fragment = new TestStudentFragment();
+            Bundle bundle = new Bundle();
             fragment.setArguments(bundle);
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
             ft.replace(R.id.content_frame, fragment);
