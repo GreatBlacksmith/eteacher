@@ -20,6 +20,7 @@ import com.tvz.karlokovac.eteacher.fragments.StudentDetailsFragment;
 import com.tvz.karlokovac.eteacher.fragments.StudentsFragment;
 import com.tvz.karlokovac.eteacher.fragments.SubjectFragment;
 import com.tvz.karlokovac.eteacher.fragments.SubjectStudentFragment;
+import com.tvz.karlokovac.eteacher.fragments.TestFragment;
 
 public class MainActivity extends AppCompatActivity
         implements
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity
         Fragment fragment = null;
         Bundle bundle = new Bundle();
         if (id == R.id.drawer_tests) {
-            // Handle the camera action
+            fragment = new TestFragment();
         } else if (id == R.id.drawer_students) {
             fragment = new StudentsFragment();
         } else if (id == R.id.drawer_subjects) {

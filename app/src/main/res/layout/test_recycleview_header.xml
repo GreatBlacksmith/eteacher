@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bottom_border"
+    android:weightSum="1"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/test_header_textView1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:text="Naziv testa" />
+
+    <TextView
+        android:id="@+id/test_header_textView2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.3"
+        android:text="Predmet" />
+
+    <TextView
+        android:id="@+id/test_header_textView3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:text="Broj sudionika" />
+
+    <TextView
+        android:id="@+id/test_header_textView4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:text="Prosječni bodovi" />
+</LinearLayout>
